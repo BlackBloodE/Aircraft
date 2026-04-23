@@ -73,12 +73,31 @@ npm run dev
 ```
 Aircraft/
 ├── api/
-│   ├── analyze.js      AI 辨識 serverless function（Gemini / Claude / OpenAI）
-│   └── jetapi.js       JetAPI 機尾號查詢 serverless function
+│   ├── analyze.js              AI 辨識 serverless function（Gemini / Claude / OpenAI）
+│   └── jetapi.js               JetAPI 機尾號查詢 serverless function
 ├── src/
-│   ├── App.jsx         主要 UI 與所有邏輯
-│   └── main.jsx        React 入口
-├── index.html          載入 Puter.js CDN
+│   ├── constants.js            全域常數（MODELS、PROVIDERS、Storage Keys）
+│   ├── styles.js               全部 CSS-in-JS 樣式字串
+│   ├── utils/
+│   │   ├── storage.js          localStorage 讀寫工具
+│   │   ├── image.js            圖片壓縮、縮圖產生、指紋計算
+│   │   ├── exif.js             EXIF 解析與格式化
+│   │   └── puter.js            Puter.js AI 呼叫封裝
+│   ├── hooks/
+│   │   ├── useHistory.js       歷史紀錄狀態管理
+│   │   └── useAnalyze.js       辨識流程（Puter 警告 / 重複偵測 / AI 呼叫）
+│   ├── components/
+│   │   ├── modals/
+│   │   │   ├── PuterWarningModal.jsx    Puter 首次使用授權提醒
+│   │   │   └── DuplicateWarnModal.jsx   重複辨識確認
+│   │   ├── SettingsPanel.jsx   設定面板（模型 / API Key / 快取）
+│   │   ├── ImageViewer.jsx     圖片檢視區（含掃描 / 鎖定 / 失敗動畫）
+│   │   ├── ResultsPanel.jsx    辨識結果顯示
+│   │   ├── HistoryPanel.jsx    辨識歷史紀錄面板
+│   │   └── CameraInfo.jsx      EXIF 攝影資訊摺疊卡片
+│   ├── App.jsx                 薄編排層（~140 行）
+│   └── main.jsx                React 入口
+├── index.html                  載入 Puter.js CDN
 ├── package.json
 ├── vite.config.js
 └── vercel.json
