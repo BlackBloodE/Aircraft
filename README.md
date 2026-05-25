@@ -2,7 +2,7 @@
 
 上傳飛機照片，AI 自動辨識**機型、航空公司、機尾號**，並透過 JetAPI 交叉驗證查詢結果。
 
-**線上體驗：** [https://aircraft-three.vercel.app](https://aircraft-gamma.vercel.app/)
+**線上體驗：** https://aircraft-gamma.vercel.app
 
 ---
 
